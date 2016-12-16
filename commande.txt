@@ -1,0 +1,8 @@
+// création de la table users
+php artisan make:migration create_users_table --create=users
+
+
+pour la suite modifier dans .env les champs : 
+DB_DATABASE= "nom de la base de donnée"
+DB_USERNAME= "nom de l'utilisateur"
+DB_PASSWORD= "mdp de l'utilisateur"
