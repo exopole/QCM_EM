@@ -13,28 +13,27 @@
 
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/login', function () {
-    return view('conexion_VBack');
+    return view('front.welcome');
 });
 
 Route::get('/mention', function () {
-    return view('legalMention_VBack');
+    return view('front.legalMention');
 });
 
 Route::get('/lycee', function () {
-    return view('lycee_VBack');
+    return view('front.lycee');
 });
 
-Route::get('/posts',  'FrontController@index');
+Route::get('/posts',  'FrontController@indexPost');
 
-Route::get('/post', function () {
-    return view('post_VBack');
-});
+Route::get('/post/{id}/{title?}', 'FrontController@show');
+
 
 Route::get('/contact', function () {
-    return view('contact_VBack');
+    return view('front.contact');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'FrontController@index');

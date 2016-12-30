@@ -11,6 +11,15 @@ class CommentsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Comment::class, 10)->create();
+
+		// factory(App\Comment::class, 15)->create()->each(function($comment) {
+		// 	// $comments = rand(1,15);
+			
+
+		// 	// $comment->post()->attach($comments);
+		// });
+
+		
     }
+
 }

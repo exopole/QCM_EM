@@ -48,6 +48,7 @@ $factory->define(App\Comment::class, function (Faker\Generator $faker) {
     $title = $faker->text(10);
     $content = $faker->paragraph(rand(2,5));
 
+
     return [
         'title' => $title,
         'content' => $content,

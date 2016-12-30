@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
 
 class FrontController extends Controller
 {
@@ -14,9 +15,23 @@ class FrontController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('date', 'DESC')->get(); // permet de trier les posts en fonction de la date
+        $authors = User::all();
         //return view('home', ['posts' => $posts, 'students'=> $students, 'categories' => $categories]);
-        return view('posts_VBack', compact('posts', 'students'));
+        return view('front.home', compact('posts', 'authors'));
+    }
+
+        /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexPost()
+    {
+        $posts = Post::orderBy('date', 'DESC')->get(); // permet de trier les posts en fonction de la date
+        $authors = User::all();
+        //return view('home', ['posts' => $posts, 'students'=> $students, 'categories' => $categories]);
+        return view('front.posts', compact('posts', 'authors'));
     }
 
     /**
@@ -48,7 +63,10 @@ class FrontController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id); // permet de trier les posts en fonction de la date
+        $author = User::find($post->user_id);
+        //return view('home', ['posts' => $posts, 'students'=> $students, 'categories' => $categories]);
+        return view('front.post', compact('post', 'author'));
     }
 
     /**
