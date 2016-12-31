@@ -8,6 +8,7 @@ use App\User;
 
 class FrontController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *

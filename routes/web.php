@@ -33,7 +33,14 @@ Route::get('/contact', function () {
     return view('front.contact');
 });
 
+Route::get('/contact', function () {
+    return view('front.contact');
+});
+
 
 Auth::routes();
 
 Route::get('/home', 'FrontController@index');
+
+Route::get('/teacher/{id}', 'TeacherController@index')->middleware('teacher');
+Route::get('/student/{id}', 'StudentController@index')->middleware('student');
