@@ -32,14 +32,14 @@ class PostsTableSeeder extends Seeder
     	// use pour les fonctions anonyme récupère la variable dans le contexte du script englobant
     	
         factory(App\Post::class, count($teachers)*5)->create()->each(function($post) use ($upload, $teachers){
-        	// $fileName = file_get_contents('http://lorempicsum.com/futurama/400/200/'.rand(1,9));
+        	$fileName = file_get_contents('http://lorempicsum.com/futurama/400/200/'.rand(1,9));
 
-        	// $uri = str_random(30). '.jpg'; // nom aléatoire  pour l'image
+        	$uri = str_random(30). '.jpg'; // nom aléatoire  pour l'image
 
-        	// File::put($upload.'/'.$uri,$fileName);
+        	File::put($upload.'/'.$uri,$fileName);
 
-        	// //Eloquent modifier la valeur thumbnail pour ce post
-        	// $post->url_thumbnail = $uri;
+        	//Eloquent modifier la valeur thumbnail pour ce post
+        	$post->url_thumbnail = $uri;
 
             $post->user_id = $teachers[rand(1, count($teachers) -1)];
 
