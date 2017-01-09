@@ -1,0 +1,10 @@
+<nav>
+	<ul>
+		<li>dashboard</li>
+		<li>fiche</li>
+		<li>article</li>
+		<li>commentaire</li>
+		<li>pages</li>
+		<li>eleve</li>
+	</ul>
+</nav>
