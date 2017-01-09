@@ -40,7 +40,7 @@ class TeacherController extends Controller
 
         $nbrComments = count(Comment::all());
 
-
-        return view('teacher.index', compact('user', 'posts', 'fiches', 'students', 'nbrComments'));
+        $username = $user->username;
+        return view('teacher.index', compact('user', 'posts', 'fiches', 'students', 'nbrComments', 'username'));
     }
 }

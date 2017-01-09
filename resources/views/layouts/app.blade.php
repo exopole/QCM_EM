@@ -34,6 +34,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                    {{$username}}
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">

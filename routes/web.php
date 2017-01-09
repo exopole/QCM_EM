@@ -12,9 +12,6 @@
 */
 
 
-Route::get('/', function () {
-    return view('front.welcome');
-});
 
 Route::get('/mention', function () {
     return view('front.legalMention');
@@ -40,7 +37,7 @@ Route::get('/contact', function () {
 
 Auth::routes();
 
-Route::get('/home', 'FrontController@index');
+Route::get('/', 'FrontController@index');
 
 Route::get('/teacher', 'TeacherController')->middleware('teacher');
 
