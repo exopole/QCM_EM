@@ -10,18 +10,28 @@
 
                 <div class="panel-body">
 @if(count($posts)>0)
-    @foreach($posts as $post)
-    <div>
-        <img src="{{url('images', $post->url_thumbnail)}}" ; >
-        <h2>{{$post->title}}</h2>
+    <?php $i = 0; ?>
 
-        <div>{{Str::limit($post->abstract, 50, '...')}}</div>
-          <a href="{{url('post',$post['id'])}}">{{$post->title}}</a>
-            <p> {{count($post->comments)}} commentaires</p>
-            <p>Author : {{$authors[$post->user_id]->username}} </p>
+    <div>
+        <img src="{{url('images', $posts[$i]->url_thumbnail)}}" ; >
+        <h2>{{$posts[$i]->title}}</h2>
+
+        <div>{{Str::limit($posts[$i]->abstract, 50, '...')}}</div>
+          <a href="{{url('post',$posts[$i]->id)}}">Lire la suite </a>
+            <p> {{count($posts[$i]->comments)}} commentaires</p>
+            <p>Author : {{$authors[$posts[$i]->user_id]->username}} </p>
 
         </div>
-    @endforeach
+    </div>
+    <?php $i++ ?>
+
+    @while($i < count($posts) && $i < 3)
+        <img src="{{url('images', $posts[$i]->url_thumbnail)}}" ; >
+        <h2>{{$posts[$i]->title}}</h2>
+        <div>{{Str::limit($posts[$i]->abstract, 50, '...')}}</div>
+        <a href="{{url('post',$posts[$i]->id)}}">Lire la suite </a>
+<?php $i++; ?>        
+    @endwhile
 @else
     <p>désolé aucun article</p>
 @endif
