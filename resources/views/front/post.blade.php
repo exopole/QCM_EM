@@ -11,11 +11,11 @@
                 <div class="title m-b-md">
                     Page d'une actualité
                 </div>
-<div> Title : {{$post->title}} </div>
-<div> abstract : {{$post->abstract}} </div>
-<div> content : {{$post->content}}</div>
-<div> date : {{$post->date}} </div>
-<div> author : {{$author->username}} </div>
+                    <div> Title : {{$post->title}} </div>
+                    <div> abstract : {{$post->abstract}} </div>
+                    <div> content : {{$post->content}}</div>
+                    <div> date : {{$post->date}} </div>
+                    <div> author : {{$author->username}} </div>
 
                 </div>
             </div>

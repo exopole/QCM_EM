@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
 
 class PostsTableSeeder extends Seeder
 {
@@ -18,18 +19,29 @@ class PostsTableSeeder extends Seeder
 		foreach ($files as $file) {
 			File::delete($file);
 		}
+
+        $users = User::all();
+        $teachers=[];
+
+        foreach ($users as $user) {
+            if ($user['role'] == 'teacher') {
+                $teachers[] = $user['id'];
+            }
+        }
     	// Pour chaque post créé on va associé une image2wbmp(image)
     	// use pour les fonctions anonyme récupère la variable dans le contexte du script englobant
     	
-        factory(App\Post::class, 15)->create()->each(function($post) use ($upload){
-        	$fileName = file_get_contents('http://lorempicsum.com/futurama/400/200/'.rand(1,9));
+        factory(App\Post::class, count($teachers)*5)->create()->each(function($post) use ($upload, $teachers){
+        	// $fileName = file_get_contents('http://lorempicsum.com/futurama/400/200/'.rand(1,9));
 
-        	$uri = str_random(30). '.jpg'; // nom aléatoire  pour l'image
+        	// $uri = str_random(30). '.jpg'; // nom aléatoire  pour l'image
 
-        	File::put($upload.'/'.$uri,$fileName);
+        	// File::put($upload.'/'.$uri,$fileName);
 
-        	//Eloquent modifier la valeur thumbnail pour ce post
-        	$post->url_thumbnail = $uri;
+        	// //Eloquent modifier la valeur thumbnail pour ce post
+        	// $post->url_thumbnail = $uri;
+
+            $post->user_id = $teachers[rand(1, count($teachers) -1)];
 
         	$post->save(); // update
 
@@ -44,5 +56,9 @@ class PostsTableSeeder extends Seeder
 				$post->comments()->save($comment);
 
         });
+
+        
+
+        
     }
 }

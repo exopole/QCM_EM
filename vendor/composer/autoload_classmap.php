@@ -16,7 +16,6 @@ return array(
     'CreateQuestionsTable' => $baseDir . '/database/migrations/2016_12_13_145655_create_questions_table.php',
     'CreateScoresTable' => $baseDir . '/database/migrations/2016_12_13_145738_create_scores_table.php',
     'CreateStudentProfTable' => $baseDir . '/database/migrations/2016_12_30_102926_create_student_prof_table.php',
-    'CreateTeachersTable' => $baseDir . '/database/migrations/2016_12_31_153401_create_teachers_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',

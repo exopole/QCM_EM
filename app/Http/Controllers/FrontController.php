@@ -16,7 +16,8 @@ class FrontController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('date', 'DESC')->get(); // permet de trier les posts en fonction de la date
+        $posts= Post::all();
+        //$posts = Post::orderBy('date', 'DESC')->get(); // permet de trier les posts en fonction de la date
         $authors = User::all();
         //return view('home', ['posts' => $posts, 'students'=> $students, 'categories' => $categories]);
         return view('front.home', compact('posts', 'authors'));
@@ -29,8 +30,10 @@ class FrontController extends Controller
      */
     public function indexPost()
     {
-        $posts = Post::orderBy('date', 'DESC')->get(); // permet de trier les posts en fonction de la date
+        $posts = Post::all();
+        //$posts = Post::orderBy('date', 'DESC')->get(); // permet de trier les posts en fonction de la date
         $authors = User::all();
+        
         //return view('home', ['posts' => $posts, 'students'=> $students, 'categories' => $categories]);
         return view('front.posts', compact('posts', 'authors'));
     }

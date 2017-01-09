@@ -2,86 +2,45 @@
 
 namespace App\Http\Controllers;
 
+use App\Question;
+use App\User;
+use App\Comment;
+use App\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class TeacherController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $user = Auth::user();
 
-        return view('teacher.index', compact('user'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
+     /**
+     * Show the profile for the given user.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function show($id)
+    public function __invoke()
     {
-        //
-    }
+       $user = Auth::user();
+        $posts = $user->posts;
+        //$posts = $user->posts()->orderBy('date', 'DESC')->get();
+        //$posts = Post::orderBy('date', 'DESC')->get();
+        $fiches = Question::all();
+        // Permet d'avoir tout les etudiants attitré à un professeur
+        // $students =  DB::table('users')
+        //     ->leftJoin('studentProf', 'id', '=', 'student_id')
+        //     ->where('teacher_id', '=', $user->id)
+        //     ->get(); 
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        $students =  DB::table('users')
+             ->where('role', '=', 'final_class')
+             ->orwhere('role', '=', 'first_class')
+             ->get(); 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        $nbrComments = count(Comment::all());
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+
+        return view('teacher.index', compact('user', 'posts', 'fiches', 'students', 'nbrComments'));
     }
 }

@@ -14,7 +14,6 @@
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
     $roles = ['teacher', 'final_class', 'first_class'];
-    //var_dump(array_rand($roles));
     return [
         'username' => $faker->name,
         'password' => $password ?: $password = bcrypt('secret'),
@@ -32,7 +31,6 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
     $content = $faker->paragraph(rand(2,5));
 
     return [
-        'user_id' => rand(1,10),
         'title' => $title,
         'abstract' => $abstract, 
         'content' => $content,
@@ -85,16 +83,6 @@ $factory->define(App\Choice::class, function (Faker\Generator $faker) {
 });
 
 
-$factory->define(App\Score::class, function (Faker\Generator $faker) {
-    $status = ['yes', 'no'];
-    
-    return [
-        'user_id' => rand(1, 10),
-        'question_id' => rand(1, 10),
-        'note' => rand(0,20),
-        'status' => $status[array_rand($status)],
-    ];
-});
 
 
 

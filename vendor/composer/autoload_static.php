@@ -19,6 +19,7 @@ class ComposerStaticInite503e8ecd3871db1453bf9b4950b158c
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        'e70ee5ff4bc809590c95a3917b6926ca' => __DIR__ . '/../..' . '/app/Support/helper.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -322,7 +323,6 @@ class ComposerStaticInite503e8ecd3871db1453bf9b4950b158c
         'CreateQuestionsTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_13_145655_create_questions_table.php',
         'CreateScoresTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_13_145738_create_scores_table.php',
         'CreateStudentProfTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_30_102926_create_student_prof_table.php',
-        'CreateTeachersTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_31_153401_create_teachers_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',

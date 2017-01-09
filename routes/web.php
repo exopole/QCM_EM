@@ -26,7 +26,7 @@ Route::get('/lycee', function () {
 
 Route::get('/posts',  'FrontController@indexPost');
 
-Route::get('/post/{id}/{title?}', 'FrontController@show');
+Route::get('/post/{id}', 'FrontController@show');
 
 
 Route::get('/contact', function () {
@@ -42,5 +42,14 @@ Auth::routes();
 
 Route::get('/home', 'FrontController@index');
 
-Route::get('/teacher/{id}', 'TeacherController@index')->middleware('teacher');
+Route::get('/teacher', 'TeacherController')->middleware('teacher');
+
+Route::resource('/teacher/posts', 'PostController');
+Route::resource('/teacher/fiches/questions', 'QuestionController');
+// Route::resource('/teacher/fiches/choices', 'ChoicesController');
+Route::get('/teacher/fiches/choices/{id}', 'ChoiceController@edit');
+Route::put('/teacher/fiches/choices/{id}', 'ChoiceController@update');
+Route::resource('/teacher/fiches', 'FichesController');
+
+
 Route::get('/student/{id}', 'StudentController@index')->middleware('student');

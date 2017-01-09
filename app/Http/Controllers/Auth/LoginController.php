@@ -48,9 +48,9 @@ class LoginController extends Controller
     {
         $id = $user['id'];
         if($user->role === 'teacher') {
-            return redirect()->intended('teacher/'.$id);
+            return redirect()->intended('teacher');
         }
 
-        return redirect()->intended('student/'.$id);
+        return redirect()->intended('student');
     }
 }
