@@ -13,13 +13,21 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-    	$upload = public_path('images'); // path dossier image dans le dossier public
-    	// suprimer les images avant si le dossier images n'est pas vide
-    	$files = File::allFiles($upload);
-		foreach ($files as $file) {
-			File::delete($file);
-		}
-
+        $upload = "";
+        if (!file_exists(public_path('images/posts/upload'))) {
+            
+        
+            mkdir(public_path('images/posts/upload'), 0777, true);
+        }
+        else{
+        	$upload = public_path('images/posts/upload'); // path dossier image dans le dossier public
+        	// suprimer les images avant si le dossier images n'est pas vide
+        	$files = File::allFiles($upload);
+    		foreach ($files as $file) {
+    			File::delete($file);
+    		}
+        }
+        
         $users = User::all();
         $teachers=[];
 
@@ -32,14 +40,21 @@ class PostsTableSeeder extends Seeder
     	// use pour les fonctions anonyme récupère la variable dans le contexte du script englobant
     	
         factory(App\Post::class, count($teachers)*5)->create()->each(function($post) use ($upload, $teachers){
-        	$fileName = file_get_contents('http://lorempicsum.com/futurama/400/200/'.rand(1,9));
+        	try{
+                $fileName = file_get_contents('http://lorempicsum.com/futurama/400/200/'.rand(1,9));
 
-        	$uri = str_random(30). '.jpg'; // nom aléatoire  pour l'image
+            	$uri = 'posts/upload/'.str_random(30). '.jpg'; // nom aléatoire  pour l'image
 
-        	File::put($upload.'/'.$uri,$fileName);
+            	File::put($upload.'/'.$uri,$fileName);
 
-        	//Eloquent modifier la valeur thumbnail pour ce post
-        	$post->url_thumbnail = $uri;
+                
+        	   $post->url_thumbnail = $uri;
+            }
+
+            catch(Exception $e){
+                
+            }
+                //Eloquent modifier la valeur thumbnail pour ce post
 
             $post->user_id = $teachers[rand(1, count($teachers) -1)];
 

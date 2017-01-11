@@ -18,7 +18,12 @@ class Question extends Model
 
 
 	public function choices(){
-		return $this->belongsToMany('App\Comment');
+		return $this->hasMany('App\Choice');
+	}
+
+
+	public function scores(){
+		return $this->belongsToMany('App\Score');
 	}
 
 	public function class_levelUser(){

@@ -15,6 +15,7 @@ class isStudent
      */
     public function handle($request, Closure $next)
     {
+        
         if (!$request->user() || !$request->user()->isStudent() ) {
             return redirect('/');
         }

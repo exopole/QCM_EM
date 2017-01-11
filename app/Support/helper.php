@@ -1,6 +1,8 @@
 <?php
 use Illuminate\Support\Str;
 
+use App\Score;
+
 
 if (!function_exists('limit_text')){
 

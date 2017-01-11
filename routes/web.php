@@ -49,4 +49,7 @@ Route::put('/teacher/fiches/choices/{id}', 'ChoiceController@update');
 Route::resource('/teacher/fiches', 'FichesController');
 
 
-Route::get('/student/{id}', 'StudentController@index')->middleware('student');
+Route::get('/student', 'StudentController@index');
+Route::get('/student/qcm', 'StudentController@indexQCM');
+Route::get('/student/qcm/{id}', 'StudentController@show');
+Route::put('/student/qcm/{id}', 'StudentController@update');

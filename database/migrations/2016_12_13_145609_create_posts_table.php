@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('abstract');
             $table->text('content');
-            $table->string('url_thumbnail', 100)->nullable();
+            $table->string('url_thumbnail', 100)->default('posts/default/default.jpeg');
             $table->date('date');
             $table->enum('status', ['published', 'unpublished'])->default('unpublished');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');

@@ -41,8 +41,11 @@ class User extends Authenticatable
         return $this->role === 'first_class' || $this->role === 'final_class';
     }
 
-    public function Posts(){
+    public function posts(){
         return $this->hasMany('App\Post');
+    }
+    public function scores(){
+        return $this->hasMany('App\Score');
     }
 
     

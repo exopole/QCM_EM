@@ -9,7 +9,10 @@
 
                 <div class="panel-body">
                     Eleve : {{$user->id}}
+                    Score : {{$scoreEleve}}
+                    Qcm effectués : {{$qcmFait}} / {{$total}}
                 </div>
+                <div> <a href="{{url('student/qcm')}}">Liste des qcm</a> </div>
             </div>
         </div>
     </div>
