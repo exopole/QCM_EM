@@ -13,20 +13,13 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        $upload = "";
-        if (!file_exists(public_path('images/posts/upload'))) {
-            
-        
-            mkdir(public_path('images/posts/upload'), 0777, true);
-        }
-        else{
-        	$upload = public_path('images/posts/upload'); // path dossier image dans le dossier public
-        	// suprimer les images avant si le dossier images n'est pas vide
-        	$files = File::allFiles($upload);
-    		foreach ($files as $file) {
-    			File::delete($file);
-    		}
-        }
+
+    	$upload = public_path('images/'); // path dossier image dans le dossier public
+    	// suprimer les images avant si le dossier images n'est pas vide
+    	$files = File::allFiles($upload);
+		foreach ($files as $file) {
+			File::delete($file);
+		}
         
         $users = User::all();
         $teachers=[];
@@ -43,7 +36,7 @@ class PostsTableSeeder extends Seeder
         	try{
                 $fileName = file_get_contents('http://lorempicsum.com/futurama/400/200/'.rand(1,9));
 
-            	$uri = 'posts/upload/'.str_random(30). '.jpg'; // nom aléatoire  pour l'image
+            	$uri = str_random(30). '.jpg'; // nom aléatoire  pour l'image
 
             	File::put($upload.'/'.$uri,$fileName);
 
