@@ -65,6 +65,8 @@
         width: 60%;
         /*background-color: pink;*/
         float: left;
+        border: 1px black solid;
+        margin-top: 5px;
     }
     #sidebar{
         float: left;
@@ -77,15 +79,18 @@
         border: none;
     }
     #wrapper .panel-body:first-child{
-        float: left;
-        margin-right: 15px;
-    -ms-transform: scale(1, 2); /* IE 9 */
-    -webkit-transform: scale(1, 2); /* Safari */
-    transform: scale(1, 2);
-    margin-top: 150px;
+    -ms-transform: scale(1, 1.5); /* IE 9 */
+    -webkit-transform: scale(1, 1.5); /* Safari */
+    transform: scale(1, 1.5);
+    margin-top: 5px;
     }
-    #wrapper .panel-body:last-child{
-        text-align: right;
+    #content .panel-body div{
+        float: right;
+    }
+
+    #content .panel-body{
+        clear: both;
+
     }
     footer{
         clear: both;
