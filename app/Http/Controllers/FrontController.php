@@ -16,7 +16,11 @@ class FrontController extends Controller
      */
     public function index()
     {
-        $posts= Post::all();
+        
+        $posts = DB::table('posts')
+                ->where('status', '=','published')
+                ->orderBy('date', 'desc')
+                ->get();
         //$posts = Post::orderBy('date', 'DESC')->get(); // permet de trier les posts en fonction de la date
         $authors = User::all();
         //return view('home', ['posts' => $posts, 'students'=> $students, 'categories' => $categories]);
@@ -67,10 +71,11 @@ class FrontController extends Controller
      */
     public function show($id)
     {
+        $posts = Post::all();
         $post = Post::find($id); // permet de trier les posts en fonction de la date
         $author = User::find($post->user_id);
         //return view('home', ['posts' => $posts, 'students'=> $students, 'categories' => $categories]);
-        return view('front.post', compact('post', 'author'));
+        return view('front.post', compact('post', 'author', 'posts'));
     }
 
     /**
