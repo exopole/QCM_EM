@@ -13,14 +13,14 @@
                     teacher identifiant : {{$user->id}}
 
 
-<h2> CRUDS des fiches </h2>
+<h2><a href="{{url('teacher','fiches')}}"> CRUDS des fiches</a> </h2>
 @if(count($fiches)>0)
     <?php $i=0 ?>
     @while ($i < count($fiches) && $i < 3)
         <div>
             <p style = "display:inline-block;">
-                <a href="{{url('teacher','fiches')}}">{{$fiches[$i]->title}}</a>;
-                 {{$fiches[$i]->class_level}} ;
+               {{$fiches[$i]->title}}
+                 {{$fiches[$i]->class_level}} 
                  @if($fiches[$i]->status == 'published')
                     <div style = "background:lightgreen ; width:20px; height:20px; display:inline-block;"></div>
                 @else
@@ -38,20 +38,20 @@
 @endif
 
 
-<h2>CRUDS des articles de {{$user->username}}</h2>
+<h2> <a href="{{url('teacher','posts')}}">CRUDS des articles de {{$user->username}}</a></h2>
 @if(count($posts)>0)
     <?php $i=0 ?>
     @while ($i < count($posts) && $i < 3)
         <div>
-            <p style = "display:inline-block;"> <a href="{{url('teacher','posts')}}">{{$posts[$i]->title}}</a>
- ;
+            <p style = "display:inline-block;"> {{$posts[$i]->title}}
+
         @if($posts[$i]->status == 'published')
                     <div style = "background:lightgreen ; width:20px; height:20px; display:inline-block;"></div>
                 @else
                     <div style = "background:red ; width:20px; height:20px; display:inline-block;"></div>
                 @endif
         {{$posts[$i]->date}} 
-</p>
+            </p>
              
 
         </div>
@@ -63,13 +63,13 @@
 
 
 <h2>Fiches des élèves</h2>
-@if(count($students)>0)
+<!-- @if(count($students)>0)
     @foreach($students as $student)
         {{$student->username}};
     @endforeach
 @else
     <p>ce professeur n'a aucun élèves</p>
-@endif
+@endif -->
 
 <p>{{$nbrComments}} commentaires </p>
 <p>{{count($fiches)}} fiches publiées </p>
