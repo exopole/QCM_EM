@@ -4,11 +4,9 @@
 	}
 </style>
 
-<nav>
+<nav class="panel panel-default">
 	<ul>
-		<li><a href="#" >dashboard</a></li>
-		<li><a href="#" >fiche</a></li>
-		<li><a href="#" >article</a></li>
-		<li><a href="#" >eleve</a></li>
+		<li><a href="{{url('student')}}" >dashboard</a></li>
+		<li><a href="{{url('student'/fiche)}}" >fiche</a></li>
 	</ul>
 </nav>

@@ -115,7 +115,9 @@
                     <a href="{{ url('/login') }}">connectez-vous</a>
                 </div>
         @endif
-        <div class ="fb_twitter">[F] [T]</div>
+        <div class ="fb_twitter">
+            <img src="../../assets/images/social1.jpg" alt="reseau social">
+        </div>
     </header>
     <nav>
         <ul>

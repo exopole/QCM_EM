@@ -10,7 +10,6 @@
 
 
                 <div class="panel-body">
-                    <div style = "background:red ; width:20px; height:20px;"></div>
                     teacher identifiant : {{$user->id}}
 
 
@@ -19,10 +18,14 @@
     <?php $i=0 ?>
     @while ($i < count($fiches) && $i < 3)
         <div>
-            <p>
+            <p style = "display:inline-block;">
                 <a href="{{url('teacher','fiches')}}">{{$fiches[$i]->title}}</a>;
                  {{$fiches[$i]->class_level}} ;
-                  {{$fiches[$i]->status}}
+                 @if($fiches[$i]->status == 'published')
+                    <div style = "background:lightgreen ; width:20px; height:20px; display:inline-block;"></div>
+                @else
+                    <div style = "background:red ; width:20px; height:20px; display:inline-block;"></div>
+                @endif
             </p>
              
 
@@ -40,8 +43,15 @@
     <?php $i=0 ?>
     @while ($i < count($posts) && $i < 3)
         <div>
-            <p> <a href="{{url('teacher','posts')}}">{{$posts[$i]->title}}</a>
- ;{{$posts[$i]->status}}; {{$posts[$i]->date}} </p>
+            <p style = "display:inline-block;"> <a href="{{url('teacher','posts')}}">{{$posts[$i]->title}}</a>
+ ;
+        @if($posts[$i]->status == 'published')
+                    <div style = "background:lightgreen ; width:20px; height:20px; display:inline-block;"></div>
+                @else
+                    <div style = "background:red ; width:20px; height:20px; display:inline-block;"></div>
+                @endif
+        {{$posts[$i]->date}} 
+</p>
              
 
         </div>

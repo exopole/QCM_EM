@@ -3,7 +3,7 @@
 		position: absolute;
 	}
 </style>
-<nav>
+<nav class="panel panel-default">
 	<ul>
 		<li><a href="#" >dashboard</a></li>
 		<li><a href="#" >fiche</a></li>
