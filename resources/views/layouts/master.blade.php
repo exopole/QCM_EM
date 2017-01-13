@@ -151,7 +151,7 @@
         </aside>
     </div>
     <footer>
-        <p>mentions légales | contact</p>
+        <p><a href="{{url('mention')}} ">mentions légales</a> | <a href="contact">contact</a></p>
     </footer>
     
 </body>
