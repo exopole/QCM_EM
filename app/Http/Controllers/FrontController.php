@@ -22,6 +22,7 @@ class FrontController extends Controller
                 ->where('status', '=','published')
                 ->orderBy('date', 'desc')
                 ->get();
+        //$posts = Post::all();
         //$posts = Post::orderBy('date', 'DESC')->get(); // permet de trier les posts en fonction de la date
         $authors = User::all();
         //return view('home', ['posts' => $posts, 'students'=> $students, 'categories' => $categories]);
@@ -35,12 +36,60 @@ class FrontController extends Controller
      */
     public function indexPost()
     {
-        $posts = Post::all();
+        $posts = DB::table('posts')
+                ->where('status', '=','published')
+                ->orderBy('date', 'desc')
+                ->get();
         //$posts = Post::orderBy('date', 'DESC')->get(); // permet de trier les posts en fonction de la date
         $authors = User::all();
         
         //return view('home', ['posts' => $posts, 'students'=> $students, 'categories' => $categories]);
         return view('front.posts', compact('posts', 'authors'));
+    }
+
+      /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexContact()
+    {
+        $posts = Post::all();
+        //$posts = Post::orderBy('date', 'DESC')->get(); // permet de trier les posts en fonction de la date
+        $authors = User::all();
+        
+        //return view('home', ['posts' => $posts, 'students'=> $students, 'categories' => $categories]);
+        return view('front.contact', compact('posts', 'authors'));
+    }
+
+      /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexMention()
+    {
+        $posts = Post::all();
+        //$posts = Post::orderBy('date', 'DESC')->get(); // permet de trier les posts en fonction de la date
+        $authors = User::all();
+        
+        //return view('home', ['posts' => $posts, 'students'=> $students, 'categories' => $categories]);
+        return view('front.legalMention', compact('posts', 'authors'));
+    }
+
+      /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexLycee()
+    {
+        $posts = Post::all();
+        //$posts = Post::orderBy('date', 'DESC')->get(); // permet de trier les posts en fonction de la date
+        $authors = User::all();
+        
+        //return view('home', ['posts' => $posts, 'students'=> $students, 'categories' => $categories]);
+        return view('front.lycee', compact('posts', 'authors'));
     }
 
     /**

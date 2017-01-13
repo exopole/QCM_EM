@@ -13,26 +13,16 @@
 
 
 
-Route::get('/mention', function () {
-    return view('front.legalMention');
-});
+Route::get('/mention', 'FrontController@indexMention');
 
-Route::get('/lycee', function () {
-    return view('front.lycee');
-});
+Route::get('/lycee', 'FrontController@indexLycee');
 
 Route::get('/posts',  'FrontController@indexPost');
 
 Route::get('/post/{id}', 'FrontController@show');
 
 
-Route::get('/contact', function () {
-    return view('front.contact');
-});
-
-Route::get('/contact', function () {
-    return view('front.contact');
-});
+Route::get('/contact', 'FrontController@indexContact');
 
 
 Auth::routes();
