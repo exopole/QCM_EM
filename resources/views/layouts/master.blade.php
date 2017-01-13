@@ -44,6 +44,13 @@
         height: 50px;
         line-height: 50px;
     }
+    nav .br_none{
+        border: none;
+    }
+    nav form{
+        width: 500px;
+        border-right: 1px black solid;
+    }
 
     ul li{
         width: 100px;
@@ -112,7 +119,10 @@
     </header>
     <nav>
         <ul>
-            <a href="#"><li>Home</li></a><a href="{{url('/posts')}} "><li>Actus</li></a><a href="{{url('/lycee')}} "><li>Le Lycée</li></a><a href="#"><li>Rechercher</li></a>
+            <a href="#"><li>Home</li></a><a href="{{url('/posts')}} "><li>Actus</li></a><a href="{{url('/lycee')}} "><li>Le Lycée</li></a><li class="br_none"><form class="searchform cf">
+  <button type="submit">Search</button>
+  <input type="text" placeholder="Is it me you’re looking for?">
+</form></li>
         </ul>
     </nav>
     <div id="wrapper">
