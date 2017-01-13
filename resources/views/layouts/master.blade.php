@@ -10,6 +10,7 @@
     text-decoration: none;
     margin: 0;
     padding: 0;
+    color: black;
  }
     header{
         /*background-color: red;*/
@@ -56,21 +57,38 @@
         border-left: 1px black solid;
     }
     #wrapper{
-        width: 750px;
+        width: 75%;
         background-color: orange;
         margin: 0 auto;
     }
     #content{
         width: 60%;
-        background-color: pink;
+        /*background-color: pink;*/
         float: left;
     }
     #sidebar{
+        float: left;
         border: 1px black solid;
         margin-left: 15px;
-        width: 35%;
+        width: 200px;
+        text-align: left;
+    }
+    #sidebar ul , #sidebar li{
+        border: none;
+    }
+    #wrapper .panel-body:first-child{
+        float: left;
+        margin-right: 15px;
+    -ms-transform: scale(1, 2); /* IE 9 */
+    -webkit-transform: scale(1, 2); /* Safari */
+    transform: scale(1, 2);
+    margin-top: 150px;
+    }
+    #wrapper .panel-body:last-child{
+        text-align: right;
     }
     footer{
+        clear: both;
         margin: 0 auto;
         text-align: center;
     }
@@ -82,14 +100,14 @@
         <div class ="facebook">j'aime +1</div>
         @if (Route::has('login'))
                 <div class="connexion">
-                    <a href="{{ url('/login') }}">connexion</a>
+                    <a href="{{ url('/login') }}">connectez-vous</a>
                 </div>
         @endif
         <div class ="fb_twitter">[F] [T]</div>
     </header>
     <nav>
         <ul>
-            <li>Home</li><li>Actus</li><li>Le Lycée</li><li>Rechercher</li>
+            <a href="#"><li>Home</li></a><a href="#"><li>Actus</li></a><a href="#"><li>Le Lycée</li></a><a href="#"><li>Rechercher</li></a>
         </ul>
     </nav>
     <div id="wrapper">
