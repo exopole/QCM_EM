@@ -112,7 +112,7 @@
     </header>
     <nav>
         <ul>
-            <a href="#"><li>Home</li></a><a href="#"><li>Actus</li></a><a href="#"><li>Le Lycée</li></a><a href="#"><li>Rechercher</li></a>
+            <a href="#"><li>Home</li></a><a href="{{url('/posts')}} "><li>Actus</li></a><a href="{{url('/lycee')}} "><li>Le Lycée</li></a><a href="#"><li>Rechercher</li></a>
         </ul>
     </nav>
     <div id="wrapper">
