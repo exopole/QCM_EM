@@ -74,7 +74,7 @@ class PostController extends Controller
                     $post->save(); 
                 }
                 else {
-                    $filename = public_path(env('UPLOAD_PATH', './images/posts')).'/'.$post->url_thumbnail;
+                    $filename = public_path(env('UPLOAD_PATH', './images')).'/'.$post->url_thumbnail;
                     if(File::exists($filename)){
                         File::delete($filename);
                     }

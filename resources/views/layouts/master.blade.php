@@ -116,7 +116,8 @@
                 </div>
         @endif
         <div class ="fb_twitter">
-            <img src="../../assets/images/social1.jpg" alt="reseau social">
+            <img src="{{url('images','reseau_sociaux/social1.jpg')}}" alt="reseau social">
+            
         </div>
     </header>
     <nav>
