@@ -17,7 +17,7 @@
 
         <div>{{Str::limit($posts[$i]->abstract, 50, '...')}}</div>
           <a href="{{url('post',$posts[$i]->id)}}">Lire la suite </a>
-            <p> {{count($posts[$i]->comments)}} commentaires</p>
+            <p> {{count(App\Post::find($posts[$i]->id)->comments)}} commentaires</p>
             <p>Author : {{$authors[$posts[$i]->user_id]->username}} </p>
 
         </div>

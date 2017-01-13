@@ -18,8 +18,8 @@
                         <h2>{{$post->title}}</h2>
 
                         <div>{{Str::limit($post->abstract, 50, '...')}}</div>
-                        <a href="{{url('post',$post['id'])}}">{{$post->title}}</a>
-                        <p> {{count($post->comments)}} commentaires</p>
+                        <a href="{{url('post',$post->id)}}">{{$post->title}}</a>
+                        <p> {{count(App\Post::find($post->id)->comments)}} commentaires</p>
             @if($post->user_id)
                         <p>Author : {{$authors[$post->user_id]->username}} </p>
             @endif
