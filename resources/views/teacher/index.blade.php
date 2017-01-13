@@ -1,15 +1,16 @@
 <?php use Illuminate\Support\Str;?>
 @extends('layouts.app')
 
-
-
 @section('content')
 <div class="container">
     <div class="row">
+@include('layouts.nav_admin_prof')
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
 
+
                 <div class="panel-body">
+                    <div style = "background:red ; width:20px; height:20px;"></div>
                     teacher identifiant : {{$user->id}}
 
 
